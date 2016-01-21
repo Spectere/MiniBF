@@ -1,58 +1,56 @@
 #include <stdio.h>
-#define MEM_SIZE 30000
-#define MAX_STACK 1000
 
 int main(int argc, char** argv) {
-	FILE* in_file;
-	long len;
-	int ptr = 0;
-	long loop_stack[MAX_STACK];
-	int loop_stack_ptr = -1;
-	unsigned char mem[MEM_SIZE];
+	FILE* f;
+	long c;
+	int p = 0;
+	long L[1000];
+	int l = -1;
+	unsigned char M[30000];
 
 	if(argc < 2) {
 		printf("usage: %s (file)\n", argv[0]);
 		return 1;
 	}
 	
-	in_file = fopen(argv[1], "r");
-	if(in_file == NULL) {
+	f = fopen(argv[1], "r");
+	if(f == NULL) {
 		printf("file %s could not be opened for reading\n", argv[1]);
 		return 1;
 	}
 
-	fseek(in_file, 0, SEEK_END);
-	len = ftell(in_file);
-	rewind(in_file);
+	fseek(f, 0, SEEK_END);
+	c = ftell(f);
+	rewind(f);
 	
-	char prog[len];
-	for(int i = 0; i < MEM_SIZE; mem[i++] = 0);
-	fread(prog, sizeof *prog, len, in_file);
-	fclose(in_file);
+	char P[c];
+	for(int i = 0; i < 30000; M[i++] = 0);
+	fread(P, sizeof *P, c, f);
+	fclose(f);
 
-	for(int i = 0; i < len; i++) {
-		switch(prog[i]) {
-			case '>': if(ptr >= MEM_SIZE) ptr = 0; else ptr++; break;
-			case '<': if(ptr <= 0) ptr = MEM_SIZE; ptr--; break;
-			case '+': mem[ptr]++; break;
-			case '-': mem[ptr]--; break;
-			case '.': putchar(mem[ptr]); break;
-			case ',': mem[ptr] = getchar(); printf("%c", mem[ptr]); break;
+	for(int i = 0; i < c; i++) {
+		switch(P[i]) {
+			case '>': if(p >= 30000) p = 0; else p++; break;
+			case '<': if(p <= 0) p = 30000; p--; break;
+			case '+': M[p]++; break;
+			case '-': M[p]--; break;
+			case '.': putchar(M[p]); break;
+			case ',': M[p] = getchar(); break;
 			case '[':
-				if(!mem[ptr]) {
-					int nest = 1;
-					while(nest) {
-						char a = prog[++i];
-						if(a == '[') nest++;
-						if(a == ']') nest--;
+				if(!M[p]) {
+					int n = 1;
+					while(n) {
+						char a = P[++i];
+						if(a == '[') n++;
+						if(a == ']') n--;
 					}
 				} else {
-					loop_stack[++loop_stack_ptr] = i;
+					L[++l] = i;
 				}
 				break;
 			case ']':
-				if(mem[ptr]) i = loop_stack[loop_stack_ptr];
-				else loop_stack_ptr--;
+				if(M[p]) i = L[l];
+				else l--;
 				break;
 		}
 	}
