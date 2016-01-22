@@ -1,6 +1,6 @@
 #include <stdio.h>
 #define m 30000
-int main(int argc, char** argv) {
+void main(int z, char** Z) {
 	FILE* f;
 	long c;
 	int p = 0;
@@ -8,10 +8,10 @@ int main(int argc, char** argv) {
 	int l = -1;
 	unsigned char M[m];
 
-	if(argc < 2)
-		return 1;
+	if(z < 2)
+		return;
 	
-	f = fopen(argv[1], "r");
+	f = fopen(Z[1], "r");
 
 	fseek(f, 0, 2);
 	c = ftell(f);
@@ -48,6 +48,4 @@ int main(int argc, char** argv) {
 	}
 
 	printf("\n");
-
-	return 0;
 }
