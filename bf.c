@@ -13,7 +13,7 @@ void main(int z, char** Z) {
 	
 	char P[c], a, M[m];
 	for(; i >= 0; M[--i] = 0);
-	fread(P, sizeof *P, c, f);
+	fread(P, c, c, f);
 	fclose(f);
 
 	for(--i; i < c;
