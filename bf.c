@@ -31,14 +31,12 @@ void main(int z, char** Z) {
 			if(!M[p]) {
 				n = 0;
 				while(n) P[++i]=='['?n++:P[i]==']'?n--:n;
-			} else {
+			} else
 				L[++l] = i;
-			}
 		}
-		if(P[i]==']') {
+		if(P[i]==']')
 			if(M[p]) i = L[l];
 			else if(l>=0) l--;
-		}
 	}
 
 	printf("\n");
