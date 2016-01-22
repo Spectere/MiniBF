@@ -1,5 +1,4 @@
 #include <stdio.h>
-#define b break;
 #define m 30000
 int main(int argc, char** argv) {
 	FILE* f;
@@ -24,29 +23,27 @@ int main(int argc, char** argv) {
 	fclose(f);
 
 	for(int i = 0; i < c; i++) {
-		switch(P[i]) {
-			case '>': if(p >= m) p = 0; else p++; b
-			case '<': if(p <= 0) p = m; p--; b
-			case '+': M[p]++; b
-			case '-': M[p]--; b
-			case '.': putchar(M[p]); b
-			case ',': M[p] = getchar(); b
-			case '[':
-				if(!M[p]) {
-					int n = 1;
-					while(n) {
-						char a = P[++i];
-						if(a == '[') n++;
-						if(a == ']') n--;
-					}
-				} else {
-					L[++l] = i;
+		P[i]=='+'?M[p]++
+		:P[i]=='-'?M[p]--
+		:P[i]=='.'?putchar(M[p])
+		:P[i]==','?M[p]=getchar()
+		:P[i]=='<'?(--p<0?p=m:p)
+		:P[i]=='>'?(++p==m?p=0:p):i;
+		if(P[i]=='[') {
+			if(!M[p]) {
+				int n = 1;
+				while(n) {
+					char a = P[++i];
+					if(a == '[') n++;
+					if(a == ']') n--;
 				}
-				b
-			case ']':
-				if(M[p]) i = L[l];
-				else l--;
-				b
+			} else {
+				L[++l] = i;
+			}
+		}
+		if(P[i]==']') {
+			if(M[p]) i = L[l];
+			else if(l>=0) l--;
 		}
 	}
 
