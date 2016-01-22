@@ -3,7 +3,7 @@
 void main(int z, char** Z) {
 	FILE* f;
 	long c, L[1000];
-	int p = 0, l = -1, i = 0;
+	int p = 0, l = -1, i = 0, n;
 	unsigned char M[m];
 
 	if(z < 2)
@@ -15,7 +15,7 @@ void main(int z, char** Z) {
 	c = ftell(f);
 	rewind(f);
 	
-	char P[c];
+	char P[c], a;
 	for(; i < m; M[i++] = 0);
 	fread(P, sizeof *P, c, f);
 	fclose(f);
@@ -29,9 +29,9 @@ void main(int z, char** Z) {
 		:P[i]=='>'?(++p==m?p=0:p):i;
 		if(P[i]=='[') {
 			if(!M[p]) {
-				int n = 1;
+				n = 0;
 				while(n) {
-					char a = P[++i];
+					a = P[++i];
 					if(a == '[') n++;
 					if(a == ']') n--;
 				}
