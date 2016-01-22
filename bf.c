@@ -30,11 +30,7 @@ void main(int z, char** Z) {
 		if(P[i]=='[') {
 			if(!M[p]) {
 				n = 0;
-				while(n) {
-					a = P[++i];
-					if(a == '[') n++;
-					if(a == ']') n--;
-				}
+				while(n) P[++i]=='['?n++:P[i]==']'?n--:n;
 			} else {
 				L[++l] = i;
 			}
