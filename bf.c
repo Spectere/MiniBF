@@ -26,6 +26,4 @@ main(int z,char** Z) {
 		:P[i]=='>'?(++p==m?p=0:p)
 		:P[i]=='['?(M[p]?L[++l]=i:n++)
 		:P[i]==']'?(M[p]?i=L[l]:(l>=0?l--:l)):i));
-
-	printf("\n");
 }
