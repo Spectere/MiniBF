@@ -1,12 +1,13 @@
 #include <stdio.h>
-
+#define b break;
+#define m 30000
 int main(int argc, char** argv) {
 	FILE* f;
 	long c;
 	int p = 0;
 	long L[1000];
 	int l = -1;
-	unsigned char M[30000];
+	unsigned char M[m];
 
 	if(argc < 2) {
 		printf("usage: %s (file)\n", argv[0]);
@@ -24,18 +25,18 @@ int main(int argc, char** argv) {
 	rewind(f);
 	
 	char P[c];
-	for(int i = 0; i < 30000; M[i++] = 0);
+	for(int i = 0; i < m; M[i++] = 0);
 	fread(P, sizeof *P, c, f);
 	fclose(f);
 
 	for(int i = 0; i < c; i++) {
 		switch(P[i]) {
-			case '>': if(p >= 30000) p = 0; else p++; break;
-			case '<': if(p <= 0) p = 30000; p--; break;
-			case '+': M[p]++; break;
-			case '-': M[p]--; break;
-			case '.': putchar(M[p]); break;
-			case ',': M[p] = getchar(); break;
+			case '>': if(p >= m) p = 0; else p++; b
+			case '<': if(p <= 0) p = m; p--; b
+			case '+': M[p]++; b
+			case '-': M[p]--; b
+			case '.': putchar(M[p]); b
+			case ',': M[p] = getchar(); b
 			case '[':
 				if(!M[p]) {
 					int n = 1;
@@ -47,11 +48,11 @@ int main(int argc, char** argv) {
 				} else {
 					L[++l] = i;
 				}
-				break;
+				b
 			case ']':
 				if(M[p]) i = L[l];
 				else l--;
-				break;
+				b
 		}
 	}
 
