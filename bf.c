@@ -3,7 +3,7 @@
 void main(int z, char** Z) {
 	FILE* f;
 	long c, L[1000];
-	int p = 0, l = -1, i = 0, n;
+	int p = 0, l = -1, i = m, n;
 
 	if(z < 2)
 		return;
@@ -15,11 +15,11 @@ void main(int z, char** Z) {
 	rewind(f);
 	
 	char P[c], a, M[m];
-	for(; i < m; M[i++] = 0);
+	for(; i >= 0; M[--i] = 0);
 	fread(P, sizeof *P, c, f);
 	fclose(f);
 
-	for(i = -1; i < c;
+	for(--i; i < c;
 		P[++i]=='+'?M[p]++
 		:P[i]=='-'?M[p]--
 		:P[i]=='.'?putchar(M[p])
