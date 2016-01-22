@@ -4,9 +4,6 @@ void main(int z, char** Z) {
 	FILE* f;
 	long c, L[1000];
 	int p = 0, l = -1, i = m, n;
-
-	if(z < 2)
-		return;
 	
 	f = fopen(Z[1], "r");
 
