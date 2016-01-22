@@ -4,7 +4,6 @@ void main(int z, char** Z) {
 	FILE* f;
 	long c, L[1000];
 	int p = 0, l = -1, i = 0, n;
-	unsigned char M[m];
 
 	if(z < 2)
 		return;
@@ -15,7 +14,7 @@ void main(int z, char** Z) {
 	c = ftell(f);
 	rewind(f);
 	
-	char P[c], a;
+	char P[c], a, M[m];
 	for(; i < m; M[i++] = 0);
 	fread(P, sizeof *P, c, f);
 	fclose(f);
