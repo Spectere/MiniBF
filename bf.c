@@ -9,18 +9,12 @@ int main(int argc, char** argv) {
 	int l = -1;
 	unsigned char M[m];
 
-	if(argc < 2) {
-		printf("usage: %s (file)\n", argv[0]);
+	if(argc < 2)
 		return 1;
-	}
 	
 	f = fopen(argv[1], "r");
-	if(f == NULL) {
-		printf("file %s could not be opened for reading\n", argv[1]);
-		return 1;
-	}
 
-	fseek(f, 0, SEEK_END);
+	fseek(f, 0, 2);
 	c = ftell(f);
 	rewind(f);
 	
