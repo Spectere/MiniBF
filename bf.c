@@ -52,7 +52,7 @@ int main(int argc, char** argv) {
 				break;
 			case ']':
 				if(mem[ptr]) i = loop_stack[loop_stack_ptr];
-				else loop_stack_ptr--;
+				else if(loop_stack_ptr >= 0) loop_stack_ptr--;
 				break;
 		}
 	}
