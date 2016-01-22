@@ -1,5 +1,6 @@
 #include<stdio.h>
 #define m 30000
+#define _ P[i]==
 main(int z,char** Z) {
 	FILE* f;
 	long c,L[1000];
@@ -17,13 +18,13 @@ main(int z,char** Z) {
 	fclose(f);
 
 	for(; i++ < c;
-		n?(P[i]=='['?n++:P[i]==']'?n--:n)
-		:(P[i]=='+'?M[p]++
-		:P[i]=='-'?M[p]--
-		:P[i]=='.'?putchar(M[p])
-		:P[i]==','?M[p]=getchar()
-		:P[i]=='<'?(--p<0?p=m:p)
-		:P[i]=='>'?(++p==m?p=0:p)
-		:P[i]=='['?(M[p]?L[++l]=i:n++)
-		:P[i]==']'?(M[p]?i=L[l]:(l>=0?l--:l)):i));
+		n?(_'['?n++:_']'?n--:n)
+		:(_'+'?M[p]++
+		:_'-'?M[p]--
+		:_'.'?putchar(M[p])
+		:_','?M[p]=getchar()
+		:_'<'?(--p<0?p=m:p)
+		:_'>'?(++p==m?p=0:p)
+		:_'['?(M[p]?L[++l]=i:n++)
+		:_']'?(M[p]?i=L[l]:(l>=0?l--:l)):i));
 }
