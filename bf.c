@@ -2,10 +2,8 @@
 #define m 30000
 void main(int z, char** Z) {
 	FILE* f;
-	long c;
-	int p = 0;
-	long L[1000];
-	int l = -1;
+	long c, L[1000];
+	int p = 0, l = -1, i = 0;
 	unsigned char M[m];
 
 	if(z < 2)
@@ -18,11 +16,11 @@ void main(int z, char** Z) {
 	rewind(f);
 	
 	char P[c];
-	for(int i = 0; i < m; M[i++] = 0);
+	for(; i < m; M[i++] = 0);
 	fread(P, sizeof *P, c, f);
 	fclose(f);
 
-	for(int i = 0; i < c; i++) {
+	for(i = 0; i < c; i++) {
 		P[i]=='+'?M[p]++
 		:P[i]=='-'?M[p]--
 		:P[i]=='.'?putchar(M[p])
