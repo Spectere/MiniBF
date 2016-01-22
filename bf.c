@@ -3,7 +3,7 @@
 void main(int z, char** Z) {
 	FILE* f;
 	long c, L[1000];
-	int p = 0, l = -1, i = m, n;
+	int p = 0, l = -1, i = m, n = 0;
 	
 	f = fopen(Z[1], "r");
 
@@ -24,10 +24,9 @@ void main(int z, char** Z) {
 		:P[i]=='<'?(--p<0?p=m:p)
 		:P[i]=='>'?(++p==m?p=0:p):i) {
 		if(P[i]=='[') {
-			if(!M[p]) {
-				n = 0;
+			if(!M[p])
 				while(n) P[++i]=='['?n++:P[i]==']'?n--:n;
-			} else
+			else
 				L[++l] = i;
 		}
 		if(P[i]==']')
