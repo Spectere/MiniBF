@@ -12,7 +12,7 @@ main(int z,char** Z) {
 	c=ftell(f);
 	rewind(f);
 	
-	char P[c],a,M[m];
+	char P[c],M[m];
 	for(;i>=0;M[--i]=0);
 	fread(P,c,c,f);
 	fclose(f);
