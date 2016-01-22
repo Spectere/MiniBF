@@ -42,7 +42,8 @@ int main(int argc, char** argv) {
 				if(!mem[ptr]) {
 					int nest = 1;
 					while(nest) {
-						char a = prog[++i];
+						if(++i == len) break;
+						char a = prog[i];
 						if(a == '[') nest++;
 						if(a == ']') nest--;
 					}
