@@ -16,8 +16,8 @@ void main(int z, char** Z) {
 	fread(P, c, c, f);
 	fclose(f);
 
-	for(--i; i < c;
-		P[++i]=='+'?M[p]++
+	for(; i++ < c;
+		P[i]=='+'?M[p]++
 		:P[i]=='-'?M[p]--
 		:P[i]=='.'?putchar(M[p])
 		:P[i]==','?M[p]=getchar()
