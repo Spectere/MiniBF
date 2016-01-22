@@ -19,13 +19,13 @@ void main(int z, char** Z) {
 	fread(P, sizeof *P, c, f);
 	fclose(f);
 
-	for(i = 0; i < c; i++) {
-		P[i]=='+'?M[p]++
+	for(i = -1; i < c;
+		P[++i]=='+'?M[p]++
 		:P[i]=='-'?M[p]--
 		:P[i]=='.'?putchar(M[p])
 		:P[i]==','?M[p]=getchar()
 		:P[i]=='<'?(--p<0?p=m:p)
-		:P[i]=='>'?(++p==m?p=0:p):i;
+		:P[i]=='>'?(++p==m?p=0:p):i) {
 		if(P[i]=='[') {
 			if(!M[p]) {
 				n = 0;
